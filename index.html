@@ -1,16 +1,1236 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>TwesMedia Apps</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TWES LABS is a Uganda-based software development business creating mobile applications, AI-powered tools, educational products, games and practical digital solutions.">
+  <meta name="theme-color" content="#0b1630">
+  <title>TWES LABS — Building Useful Technology</title>
+
+  <style>
+    :root {
+      --navy: #0b1630;
+      --navy-soft: #142443;
+      --blue: #2864e8;
+      --blue-light: #eaf0ff;
+      --ink: #17233b;
+      --muted: #66738a;
+      --line: #e7ebf2;
+      --surface: #f7f9fc;
+      --white: #ffffff;
+      --radius: 20px;
+      --shadow: 0 18px 50px rgba(15, 32, 65, .09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .section { padding: 105px 0; }
+
+    .section-heading {
+      max-width: 690px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      margin-top: 15px;
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.13;
+      letter-spacing: -.045em;
+      color: var(--navy);
+    }
+
+    .section-heading p {
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 21px;
+      border-radius: 9px;
+      font-size: .92rem;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--blue);
+      box-shadow: 0 8px 22px rgba(40, 100, 232, .22);
+    }
+
+    .btn-primary:hover {
+      background: #174fc9;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.28);
+      color: white;
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+
+    /* Navigation */
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--navy);
+      font-weight: 850;
+      font-size: 1.14rem;
+      letter-spacing: .055em;
+    }
+
+    .brand-mark {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--blue);
+      border-radius: 10px;
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: -.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #4d5b73;
+      font-size: .88rem;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-cta {
+      color: white !important;
+      background: var(--navy);
+      padding: 10px 17px;
+      border-radius: 8px;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(ellipse at 78% 30%, rgba(48, 105, 235, .32), transparent 34%),
+        radial-gradient(ellipse at 10% 100%, rgba(35, 76, 160, .25), transparent 38%),
+        linear-gradient(120deg, #09142b, #122447 65%, #102b58);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 540px;
+      height: 540px;
+      right: -150px;
+      top: -180px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(255,255,255,.025),
+        0 0 0 110px rgba(255,255,255,.02);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 65px;
+      min-height: 650px;
+      padding-top: 75px;
+      padding-bottom: 85px;
+    }
+
+    .hero .eyebrow { color: #91b3ff; }
+
+    .hero h1 {
+      max-width: 720px;
+      margin-top: 24px;
+      font-size: clamp(3rem, 6vw, 5.25rem);
+      line-height: 1.02;
+      letter-spacing: -.065em;
+      font-weight: 800;
+    }
+
+    .hero h1 span { color: #83aaff; }
+
+    .hero-copy {
+      max-width: 580px;
+      margin-top: 25px;
+      color: #c5d0e4;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .hero-note {
+      margin-top: 42px;
+      color: #9eacc4;
+      font-size: .83rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(160,190,255,.23);
+      border-radius: 50%;
+    }
+
+    .orbit::before, .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(160,190,255,.16);
+      border-radius: 50%;
+    }
+
+    .orbit::before { inset: 30px; }
+    .orbit::after { inset: 65px; }
+
+    .core-card {
+      position: relative;
+      z-index: 2;
+      width: 245px;
+      padding: 27px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(255,255,255,.17), rgba(255,255,255,.055));
+      backdrop-filter: blur(15px);
+      box-shadow: 0 25px 80px rgba(0,0,0,.2);
+    }
+
+    .core-symbol {
+      width: 57px;
+      height: 57px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: white;
+      background: linear-gradient(135deg, #4c8aff, #2454c9);
+      font-size: 1.55rem;
+      font-weight: 900;
+    }
+
+    .core-card h3 {
+      margin-top: 22px;
+      font-size: 1.15rem;
+    }
+
+    .core-card p {
+      margin-top: 7px;
+      color: #c4d0e5;
+      font-size: .84rem;
+    }
+
+    .floating-label {
+      position: absolute;
+      z-index: 3;
+      padding: 11px 15px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 10px;
+      color: #e5edff;
+      background: rgba(20,42,79,.88);
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .label-one { top: 37px; right: 0; }
+    .label-two { bottom: 48px; left: -5px; }
+    .label-three { bottom: 3px; right: 25px; }
+
+    /* Intro strip */
+
+    .trust-strip {
+      border-bottom: 1px solid var(--line);
+      background: white;
+    }
+
+    .trust-inner {
+      min-height: 105px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .trust-label {
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 650;
+    }
+
+    .trust-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      color: #42516b;
+      font-size: .87rem;
+      font-weight: 750;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 85px;
+      align-items: start;
+    }
+
+    .about-visual {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 75% 25%, rgba(91,145,255,.55), transparent 32%),
+        linear-gradient(145deg, #132b54, #0b1630);
+      box-shadow: var(--shadow);
+    }
+
+    .about-visual::before {
+      content: "TWES";
+      position: absolute;
+      left: 25px;
+      bottom: -18px;
+      color: rgba(255,255,255,.08);
+      font-size: 7rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.08em;
+    }
+
+    .about-visual-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .about-visual-content strong {
+      font-size: 3.4rem;
+      letter-spacing: .08em;
+    }
+
+    .about-visual-content span {
+      margin-top: 7px;
+      color: #b8c9ed;
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .about-copy h2 {
+      margin-top: 15px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -.045em;
+    }
+
+    .about-copy p {
+      margin-top: 19px;
+      color: var(--muted);
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 29px;
+    }
+
+    .about-point {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+    }
+
+    .about-point strong {
+      display: block;
+      color: var(--navy);
+      font-size: .93rem;
+    }
+
+    .about-point span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* Services */
+
+    .services { background: var(--surface); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .service-card {
+      min-height: 245px;
+      padding: 27px 23px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+      transition: .22s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: #cbd8f7;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--blue);
+      background: var(--blue-light);
+      font-size: 1.35rem;
+    }
+
+    .service-card h3 {
+      margin-top: 22px;
+      color: var(--navy);
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .service-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    /* Portfolio */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 205px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: white;
+      transition: .2s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .app-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .app-icon {
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      color: white;
+      background: linear-gradient(135deg, #3779f6, #193b89);
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    .app-card h3 {
+      color: var(--navy);
+      font-size: .98rem;
+      line-height: 1.3;
+    }
+
+    .app-category {
+      margin-top: 3px;
+      color: var(--blue);
+      font-size: .73rem;
+      font-weight: 750;
+    }
+
+    .app-card p {
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .portfolio-note {
+      margin-top: 30px;
+      padding: 20px 23px;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      color: #56647a;
+      background: var(--surface);
+      font-size: .86rem;
+    }
+
+    .portfolio-action {
+      margin-top: 28px;
+    }
+
+    /* Approach */
+
+    .approach {
+      color: white;
+      background: var(--navy);
+    }
+
+    .approach .section-heading h2 { color: white; }
+    .approach .section-heading p { color: #b5c2d9; }
+    .approach .eyebrow { color: #91b3ff; }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    .approach-item {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.19);
+    }
+
+    .approach-number {
+      color: #7fa6ff;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .approach-item h3 {
+      margin-top: 17px;
+      font-size: 1.15rem;
+    }
+
+    .approach-item p {
+      margin-top: 10px;
+      color: #b5c2d9;
+      font-size: .9rem;
+    }
+
+    /* Markets */
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .market-copy h2 {
+      margin-top: 15px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -.045em;
+    }
+
+    .market-copy p {
+      margin-top: 18px;
+      color: var(--muted);
+    }
+
+    .market-panel {
+      padding: 35px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .market-stat {
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .market-stat:last-child { border-bottom: 0; }
+
+    .market-stat strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.02rem;
+    }
+
+    .market-stat span {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    /* Contact */
+
+    .contact {
+      padding: 90px 0;
+      color: white;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(62,111,222,.3), transparent 32%),
+        linear-gradient(120deg, #102344, #0b1630);
+    }
+
+    .contact-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .contact .eyebrow { color: #91b3ff; }
+
+    .contact h2 {
+      max-width: 650px;
+      margin-top: 16px;
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -.05em;
+    }
+
+    .contact p {
+      margin-top: 17px;
+      color: #bdc9dc;
+    }
+
+    .contact .btn { flex-shrink: 0; }
+
+    /* Footer */
+
+    footer {
+      padding: 35px 0;
+      color: #aab6c9;
+      background: #081226;
+      font-size: .83rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: white;
+      font-weight: 800;
+      letter-spacing: .07em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 20px; }
+      .hero-art { min-height: 330px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .market-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(100% - 34px, 1160px); }
+      .section { padding: 75px 0; }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 22px 25px 26px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 19px;
+        background: white;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-cta { text-align: center; }
+      .hero-inner { min-height: auto; padding-top: 85px; padding-bottom: 55px; }
+      .hero h1 { font-size: clamp(2.8rem, 13vw, 4.3rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-art { min-height: 290px; }
+      .orbit { width: 260px; height: 260px; }
+      .core-card { width: 210px; }
+      .label-one { right: -3px; }
+      .label-two { left: -3px; }
+      .trust-inner { padding: 24px 0; align-items: flex-start; flex-direction: column; }
+      .trust-items { gap: 13px 20px; }
+      .service-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .approach-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-visual { min-height: 290px; }
+      .about-points { grid-template-columns: 1fr 1fr; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
+
 <body>
 
-<h2>TwesMedia Inc. Apps:</h2>
-<p>&bull; Torch Flashlight (Android)
-<p>&bull; Classic Sudoku Offline Puzzles (iOS)
-<p>&bull; Classic Sudoku Offline Puzzles (Android)
-  
-<p>Support: <a href="mailto:apps.twesmedia@gmail.com">apps.twesmedia@gmail.com</a></p>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="TWES LABS home">
+        <span class="brand-mark">T</span>
+        <span>TWES LABS</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation"
+              aria-expanded="false" onclick="toggleMenu()">☰</button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#services" onclick="closeMenu()">What we do</a></li>
+          <li><a href="#portfolio" onclick="closeMenu()">Our work</a></li>
+          <li><a href="#approach" onclick="closeMenu()">Our approach</a></li>
+          <li><a class="nav-cta" href="#contact" onclick="closeMenu()">Contact us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow">Software development studio · Uganda</span>
+          <h1>Building useful <span>technology</span> for everyday life.</h1>
+          <p class="hero-copy">
+            We design and develop mobile applications and digital tools that
+            solve practical problems, make information more accessible and
+            create engaging experiences.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#portfolio">Explore our work <span>→</span></a>
+            <a class="btn btn-outline" href="#about">Discover TWES LABS</a>
+          </div>
+          <p class="hero-note">Thoughtful software. Practical solutions. Designed for people.</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="core-card">
+            <div class="core-symbol">T.</div>
+            <h3>Ideas into experiences.</h3>
+            <p>Mobile applications, intelligent tools and digital products.</p>
+          </div>
+          <div class="floating-label label-one">✳ &nbsp; AI &amp; productivity</div>
+          <div class="floating-label label-two">◇ &nbsp; Mobile applications</div>
+          <div class="floating-label label-three">＋ &nbsp; Digital products</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <span class="trust-label">Our areas of focus</span>
+        <div class="trust-items">
+          <span>Mobile apps</span>
+          <span>AI-powered tools</span>
+          <span>Education</span>
+          <span>Games &amp; puzzles</span>
+          <span>Utilities</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="about-visual-content">
+            <strong>TWES</strong>
+            <span>Technology · Creativity · Purpose</span>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">About us</span>
+          <h2>Small team. Thoughtful ideas. Useful technology.</h2>
+          <p>
+            TWES LABS is a Uganda-based software development business focused
+            on creating practical, user-friendly mobile applications and
+            digital products.
+          </p>
+          <p>
+            Led by software developer Job Tumwesigye, we work as a small,
+            collaborative team, bringing together development and UI/UX
+            expertise as projects require. Our approach combines independent
+            product development with collaboration to turn ideas into
+            useful digital experiences.
+          </p>
+          <p>
+            We believe good technology should be approachable, purposeful
+            and designed around the people who use it.
+          </p>
+
+          <div class="about-points">
+            <div class="about-point">
+              <strong>Practical by design</strong>
+              <span>We focus on real user needs.</span>
+            </div>
+            <div class="about-point">
+              <strong>Built collaboratively</strong>
+              <span>Different skills, shared purpose.</span>
+            </div>
+            <div class="about-point">
+              <strong>Always learning</strong>
+              <span>Exploring useful technologies.</span>
+            </div>
+            <div class="about-point">
+              <strong>Global outlook</strong>
+              <span>Creating for diverse audiences.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">What we do</span>
+          <h2>Digital products with purpose.</h2>
+          <p>
+            We explore different areas of software development, creating
+            products that inform, assist, entertain and make everyday
+            activities easier.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">▣</div>
+            <h3>Mobile application development</h3>
+            <p>
+              Intuitive Android applications designed to address real-world
+              needs and deliver useful experiences.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✳</div>
+            <h3>AI-powered tools</h3>
+            <p>
+              Intelligent applications that help people work, create,
+              organize information and get things done.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◎</div>
+            <h3>Education and information</h3>
+            <p>
+              Accessible digital resources that support learning,
+              exploration and informed decisions.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◇</div>
+            <h3>Games and practical utilities</h3>
+            <p>
+              Engaging puzzles, brain-training experiences and everyday
+              tools designed with usability in mind.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Selected work</span>
+          <h2>Applications built around real interests and needs.</h2>
+          <p>
+            Our development experience spans productivity, artificial
+            intelligence, education, entertainment and practical utilities.
+            Explore examples from our developer portfolio.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">AI</div>
+              <div>
+                <h3>AI Chat Assistant</h3>
+                <div class="app-category">AI &amp; productivity</div>
+              </div>
+            </div>
+            <p>An AI-powered assistant designed to help users ask questions and explore ideas.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">✦</div>
+              <div>
+                <h3>AI Daily Planner</h3>
+                <div class="app-category">Productivity</div>
+              </div>
+            </div>
+            <p>A planning tool that brings intelligent assistance into everyday organization.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">✧</div>
+              <div>
+                <h3>AI Image Studio</h3>
+                <div class="app-category">Creative tools</div>
+              </div>
+            </div>
+            <p>A creative application exploring AI-assisted image experiences.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">✈</div>
+              <div>
+                <h3>Aviation Careers in Africa</h3>
+                <div class="app-category">Education &amp; information</div>
+              </div>
+            </div>
+            <p>Information and resources for people exploring aviation careers in Africa.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">▦</div>
+              <div>
+                <h3>AI Crossword Puzzle Generator</h3>
+                <div class="app-category">Games &amp; learning</div>
+              </div>
+            </div>
+            <p>A crossword experience that brings customizable word puzzles to users.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">Aa</div>
+              <div>
+                <h3>LexiLink: Word Connect Puzzle</h3>
+                <div class="app-category">Word games</div>
+              </div>
+            </div>
+            <p>A word puzzle experience built around vocabulary and problem-solving.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">W</div>
+              <div>
+                <h3>Offline Word Guess</h3>
+                <div class="app-category">Word games</div>
+              </div>
+            </div>
+            <p>An offline word-guessing game for casual play without daily limits.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">⌗</div>
+              <div>
+                <h3>QR/Barcode Generator &amp; Scanner</h3>
+                <div class="app-category">Utilities</div>
+              </div>
+            </div>
+            <p>A practical tool for creating and scanning QR codes and barcodes.</p>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">＋</div>
+              <div>
+                <h3>More apps and experiments</h3>
+                <div class="app-category">Our growing portfolio</div>
+              </div>
+            </div>
+            <p>Explore more utilities, puzzles, device tools and mobile experiences.</p>
+          </article>
+        </div>
+
+        <div class="portfolio-note">
+          <strong>A note about our portfolio:</strong>
+          These examples reflect applications developed and published by
+          our founder under an individual developer account before the
+          establishment of TWES LABS as a registered business. They
+          demonstrate our existing development experience and do not
+          represent applications previously published under the TWES LABS
+          seller account.
+        </div>
+
+        <div class="portfolio-action">
+          <a class="btn btn-primary"
+             href="https://play.google.com/store/apps/developer?id=Tumwesigye+Job"
+             target="_blank" rel="noopener noreferrer">
+            View Google Play developer portfolio →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our approach</span>
+          <h2>From a useful idea to a thoughtful product.</h2>
+          <p>
+            We bring together product thinking, development and design
+            to create software that is useful, accessible and enjoyable.
+          </p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-item">
+            <span class="approach-number">01 / UNDERSTAND</span>
+            <h3>Start with the need</h3>
+            <p>
+              We look at the problem, the people experiencing it and
+              the opportunity to make something genuinely useful.
+            </p>
+          </article>
+
+          <article class="approach-item">
+            <span class="approach-number">02 / CREATE</span>
+            <h3>Design and develop</h3>
+            <p>
+              We combine software development and thoughtful interface
+              design to shape ideas into working products.
+            </p>
+          </article>
+
+          <article class="approach-item">
+            <span class="approach-number">03 / IMPROVE</span>
+            <h3>Learn and refine</h3>
+            <p>
+              We value feedback, ongoing improvements and maintaining
+              products as user needs and technology evolve.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container market-grid">
+        <div class="market-copy">
+          <span class="eyebrow">Based in Uganda · Built for a wider world</span>
+          <h2>Local roots. International ambition.</h2>
+          <p>
+            TWES LABS is based in Uganda, with an ambition to create
+            digital products for people across different countries and
+            communities.
+          </p>
+          <p>
+            We aim to make our applications accessible to users in Uganda
+            and international markets through digital distribution
+            platforms, including the Galaxy Store and Google Play.
+          </p>
+        </div>
+
+        <div class="market-panel">
+          <div class="market-stat">
+            <strong>Our home</strong>
+            <span>Uganda, East Africa</span>
+          </div>
+          <div class="market-stat">
+            <strong>Our audience</strong>
+            <span>Students, professionals, gamers and everyday users</span>
+          </div>
+          <div class="market-stat">
+            <strong>Our platforms</strong>
+            <span>Android and supported mobile application marketplaces</span>
+          </div>
+          <div class="market-stat">
+            <strong>Our ambition</strong>
+            <span>Useful digital products for local and international audiences</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <span class="eyebrow">Get in touch</span>
+          <h2>Have a question, an idea or an opportunity to collaborate?</h2>
+          <p>We would be glad to hear from you.</p>
+        </div>
+        <a class="btn btn-primary"
+           href="mailto:apps.twesmedia@gmail.com?subject=Enquiry%20for%20TWES%20LABS">
+          Contact TWES LABS →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">TWES LABS</div>
+        <div>Building useful technology for everyday life.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">What we do</a>
+        <a href="#portfolio">Our work</a>
+        <a href="https://play.google.com/store/apps/developer?id=Tumwesigye+Job"
+           target="_blank" rel="noopener noreferrer">Google Play</a>
+        <a href="mailto:apps.twesmedia@gmail.com">Email</a>
+      </div>
+      <div>© <span id="year"></span> TWES LABS. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      const menu = document.getElementById("navLinks");
+      const button = document.querySelector(".menu-toggle");
+      const isOpen = menu.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      button.textContent = isOpen ? "×" : "☰";
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById("navLinks");
+      const button = document.querySelector(".menu-toggle");
+      menu.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+      button.textContent = "☰";
+    }
+  </script>
 
 </body>
 </html>
